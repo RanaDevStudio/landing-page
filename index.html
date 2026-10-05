@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonicBuds Pro | Next-Gen Audio Landing Page</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #070a13; color: #fff; overflow-x: hidden; }
+        .navbar { padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #111827; }
+        .brand { font-size: 22px; font-weight: 800; color: #a855f7; letter-spacing: 1px; }
+        .hero-section { padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; background: radial-gradient(circle at top, #2e1065 0%, #070a13 60%); }
+        .tagline { background: rgba(168, 85, 247, 0.1); color: #c084fc; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(168, 85, 247, 0.2); }
+        h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
+        h1 span { color: #a855f7; background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #9ca3af; font-size: 1.2rem; max-width: 650px; margin-bottom: 40px; line-height: 1.6; }
+        .buy-btn { background: linear-gradient(to right, #a855f7, #ec4899); color: white; padding: 16px 36px; border-radius: 30px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); transition: 0.3s; }
+        .buy-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(168, 85, 247, 0.6); }
+        .features-grid { padding: 8px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; width: 100%; max-width: 1100px; }
+        .f-card { background: #111827; padding: 30px; border-radius: 20px; border: 1px solid #1f2937; text-align: left; transition: 0.3s; }
+        .f-card:hover { border-color: #a855f7; transform: scale(1.02); }
+        .f-icon { font-size: 32px; color: #a855f7; margin-bottom: 15px; }
+        .f-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .f-card p { font-size: 0.95rem; margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">SONIC_AUDIO</div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="tagline">🔥 Smart Launch Offer - 40% OFF</div>
+        <h1>Immerse Yourself in<br><span>Pure Sound</span></h1>
+        <p>Experience the next generation of wireless audio. Active Noise Cancellation, 40-hour battery life, and spatial audio re-engineered for true audiophiles.</p>
+        
+        <button class="buy-btn" onclick="alert('Order MVP Workflow Executed! Integration Working Perfectly.')">Pre-Order Now</button>
+
+        <div class="features-grid">
+            <div class="f-card">
+                <div class="f-icon">🔇</div>
+                <h3>Hybrid ANC</h3>
+                <p>Block out the noise completely with advanced 45dB smart cancellation technology.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon">🔋</div>
+                <h3>40H Playtime</h3>
+                <p>Keep the music going all week with ultra-fast Type-C case charging support.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon">💦</div>
+                <h3>IPX7 Waterproof</h3>
+                <p>Sweat and rain resistant engineering, built perfectly for workouts and outdoors.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

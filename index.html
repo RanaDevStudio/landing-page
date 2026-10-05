@@ -3,58 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SonicBuds Pro | Next-Gen Audio Landing Page</title>
+    <title>RanaDevStudio | Multi-Page Tech Application</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: #070a13; color: #fff; overflow-x: hidden; }
-        .navbar { padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #111827; }
-        .brand { font-size: 22px; font-weight: 800; color: #a855f7; letter-spacing: 1px; }
-        .hero-section { padding: 100px 10%; display: flex; flex-direction: column; align-items: center; text-align: center; background: radial-gradient(circle at top, #2e1065 0%, #070a13 60%); }
-        .tagline { background: rgba(168, 85, 247, 0.1); color: #c084fc; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(168, 85, 247, 0.2); }
-        h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
-        h1 span { color: #a855f7; background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        p { color: #9ca3af; font-size: 1.2rem; max-width: 650px; margin-bottom: 40px; line-height: 1.6; }
-        .buy-btn { background: linear-gradient(to right, #a855f7, #ec4899); color: white; padding: 16px 36px; border-radius: 30px; font-size: 18px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4); transition: 0.3s; }
-        .buy-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(168, 85, 247, 0.6); }
-        .features-grid { padding: 8px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; width: 100%; max-width: 1100px; }
-        .f-card { background: #111827; padding: 30px; border-radius: 20px; border: 1px solid #1f2937; text-align: left; transition: 0.3s; }
-        .f-card:hover { border-color: #a855f7; transform: scale(1.02); }
-        .f-icon { font-size: 32px; color: #a855f7; margin-bottom: 15px; }
-        .f-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
-        .f-card p { font-size: 0.95rem; margin-bottom: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background: #0b0c10; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; background: #1f2833; border-bottom: 3px solid #ff4500; box-shadow: 0 4px 20px rgba(255, 69, 0, 0.15); }
+        .logo { font-size: 24px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        .logo span { color: #ff4500; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links li a { color: #c5c6c7; text-decoration: none; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 15px; }
+        .nav-links li a:hover, .nav-links li a.active { color: #ff4500; border-bottom: 2px solid #ff4500; padding-bottom: 4px; }
+        .page-content { display: none; padding: 60px 10%; flex-grow: 1; animation: slideUp 0.4s ease; }
+        .page-content.active { display: block; }
+        .hero-container { display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 20px; }
+        .badge { background: rgba(255, 69, 0, 0.1); color: #ff4500; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 25px; border: 1px solid rgba(255, 69, 0, 0.3); }
+        h1 { font-size: 3.5rem; margin-bottom: 20px; color: #ffffff; font-weight: 800; line-height: 1.2; }
+        h1 span { color: #ff4500; } 
+        p.subtitle { color: #c5c6c7; font-size: 1.2rem; max-width: 700px; line-height: 1.7; margin-bottom: 35px; }
+        .btn { background: #ff4500; color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn:hover { background: #e03e00; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 69, 0, 0.4); }
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; margin-top: 50px; text-align: left; }
+        .feature-card { background: #ffffff; color: #0b0c10; padding: 35px 25px; border-radius: 12px; border-left: 5px solid #ff4500; transition: 0.3s; }
+        .feature-card h3 { font-size: 1.4rem; color: #0b0c10; margin-bottom: 12px; }
+        .feature-card p { color: #454545; line-height: 1.6; font-size: 0.95rem; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255,255,255,0.1); }
+        .pricing-section { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
+        .price-card { background: #1f2833; padding: 40px; border-radius: 12px; width: 300px; text-align: center; border: 1px solid #c5c6c7; }
+        .price-card h4 { font-size: 1.5rem; margin-bottom: 15px; }
+        .price-card .cost { font-size: 2.5rem; font-weight: 800; color: #ff4500; margin-bottom: 20px; }
+        .contact-box { background: #1f2833; padding: 40px; border-radius: 12px; max-width: 500px; margin: 40px auto 0 auto; width: 100%; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; color: #c5c6c7; font-size: 14px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #0b0c10; border: 1px solid #454545; border-radius: 6px; color: white; outline: none; }
+        .form-group input:focus { border-color: #ff4500; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="brand">SONIC_AUDIO</div>
+    <nav>
+        <div class="logo">Rana<span>DevStudio</span></div>
+        <ul class="nav-links">
+            <li><a onclick="switchPage('home')" id="link-home" class="active">Console Home</a></li>
+            <li><a onclick="switchPage('about')" id="link-about">About Architecture</a></li>
+            <li><a onclick="switchPage('services')" id="link-services">Service Catalogue</a></li>
+            <li><a onclick="switchPage('contact')" id="link-contact">Secure Terminal</a></li>
+        </ul>
     </nav>
 
-    <section class="hero-section">
-        <div class="tagline">🔥 Smart Launch Offer - 40% OFF</div>
-        <h1>Immerse Yourself in<br><span>Pure Sound</span></h1>
-        <p>Experience the next generation of wireless audio. Active Noise Cancellation, 40-hour battery life, and spatial audio re-engineered for true audiophiles.</p>
-        
-        <button class="buy-btn" onclick="alert('Order MVP Workflow Executed! Integration Working Perfectly.')">Pre-Order Now</button>
-
-        <div class="features-grid">
-            <div class="f-card">
-                <div class="f-icon">🔇</div>
-                <h3>Hybrid ANC</h3>
-                <p>Block out the noise completely with advanced 45dB smart cancellation technology.</p>
-            </div>
-            <div class="f-card">
-                <div class="f-icon">🔋</div>
-                <h3>40H Playtime</h3>
-                <p>Keep the music going all week with ultra-fast Type-C case charging support.</p>
-            </div>
-            <div class="f-card">
-                <div class="f-icon">💦</div>
-                <h3>IPX7 Waterproof</h3>
-                <p>Sweat and rain resistant engineering, built perfectly for workouts and outdoors.</p>
+    <div id="page-home" class="page-content active">
+        <div class="hero-container">
+            <div class="badge">PRODUCTION READY WORKFLOWS</div>
+            <h1>Engineered For <span>High-Scale</span> Digital Platforms</h1>
+            <p class="subtitle">We deploy clean architecture mobile apps and robust web systems featuring multi-stage routing capabilities. Zero lag, secure frameworks, built entirely for Contra business hubs.</p>
+            <button class="btn" onclick="switchPage('services')">View Capabilities</button>
+            <div class="grid-layout">
+                <div class="feature-card">
+                    <h3>⚡ Extreme Optimization</h3>
+                    <p>Clean system compilation resulting in under 1.2s application loading benchmarks globally.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Enterprise Security</h3>
+                    <p>End-to-end continuous encryption modules built straight into application API integrations.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 Router Stability</h3>
+                    <p>Advanced state persistence preventing crashes during asynchronous navigation actions.</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div id="page-about" class="page-content">
+        <div class="hero-container">
+            <h1>The Core <span>Development Unit</span></h1>
+            <p class="subtitle">RanaDevStudio delivers production-ready source architecture. We eliminate overhead operational layers to offer direct technical pipelines for our clients.</p>
+            <div class="grid-layout">
+                <div class="feature-card" style="background:#ff4500; color:white;">
+                    <h3 style="color:white;">Our Standard</h3>
+                    <p style="color:white;">Every single code asset undergoes automated execution testing prior to delivery validation checkpoints.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Our System</h3>
+                    <p>Utilizing high-performance server components ensuring 99.99% architecture computational runtime operational uptime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-services" class="page-content">
+        <div class="hero-container">
+            <h1>Technical <span>Execution Models</span></h1>
+            <p class="subtitle">Select a pre-configured architecture tier. All contracts are processed exclusively via secure Contra milestone channels.</p>
+            <div class="pricing-section">
+                <div class="price-card">
+                    <h4>MVP Web Core</h4>
+                    <div class="cost">$800</div>
+                    <p style="color:#c5c6c7; margin-bottom:20px;">Single page high-performance landing architecture & continuous asset deployment.</p>
+                    <button class="btn" style="padding:10px 20px;" onclick="switchPage('contact')">Select Tier</button>
+                </div>
+                <div class="price-card" style="border: 2px solid #ff4500;">
+                    <h4 style="color:#ff4500;">Full Engine Tier</h4>
+                    <div class="cost">$2,500</div>
+                    <p style="color:#c5c6c7; margin-bottom:20px;">Multi-platform application deployment, dynamic secure systems, full database pipeline.</p>
+                    <button class="btn" style="padding:10px 20px;" onclick="switchPage('contact')">Select Tier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-contact" class="page-content">
+        <div class="hero-container">
+            <h1>Initialize <span>Project Scope</span></h1>
+            <p class="subtitle">Input your engineering specifications below to establish direct secure network data pathways with our dev unit.</p>
+            <div class="contact-box">
+                <div class="form-group">
+                    <label>Enterprise Client Name</label>
+                    <input type="text" placeholder="e.g. Acme Corporation">
+                </div>
+                <div class="form-group">
+                    <label>Architecture Specification Requirement</label>
+                    <textarea rows="4" placeholder="Describe the application scope..."></textarea>
+                </div>
+                <button class="btn" onclick="alert('Secure Data Transmission Initiated!')">Transmit Data Request</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+            document.getElementById('link-' + pageId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
